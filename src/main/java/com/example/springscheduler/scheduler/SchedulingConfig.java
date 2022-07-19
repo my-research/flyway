@@ -3,6 +3,7 @@ package com.example.springscheduler.scheduler;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.TaskScheduler;
@@ -13,12 +14,13 @@ import org.springframework.scheduling.config.ScheduledTaskRegistrar;
 
 @Configuration
 @EnableScheduling
+@Slf4j
 public class SchedulingConfig implements SchedulingConfigurer {
 
     @Override
     public void configureTasks(ScheduledTaskRegistrar taskRegistrar) {
         taskRegistrar.addTriggerTask(
-                () -> System.out.println("Running Scheduler..." + Calendar.getInstance().getTime()),
+                () -> log.info("Running Scheduler..." + Calendar.getInstance().getTime()),
                 triggerContext -> {
                     Calendar nextExecutionTime = new GregorianCalendar();
                     Date lastActualExecutionTime = triggerContext.lastActualExecutionTime();
