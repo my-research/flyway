@@ -1,3 +1,0 @@
-aws:
-  sqs:
-    name: DYNAMIC_SCHEDULING_TEST_QUEUE
