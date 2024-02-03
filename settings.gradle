@@ -1,4 +1,0 @@
-rootProject.name = 'spring-scheduler'
-
-include 'm1'
-include 'm2'
