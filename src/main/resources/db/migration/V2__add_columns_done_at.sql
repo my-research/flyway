@@ -1,0 +1,2 @@
+ALTER TABLE todo
+    ADD COLUMN done_at TIMESTAMP;
